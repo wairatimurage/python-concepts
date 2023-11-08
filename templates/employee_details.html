@@ -1,3 +1,4 @@
+{% load humanize %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,12 +19,12 @@
 
                 {% endif %}
                 <div class="card-body">
-                    <h2 class="card-title">{{ employee.name }}</h2>
+                    <h2 class="card-title">{{ employee.name |title }}</h2>
                     <p class="card-text">{{ employee.email }}</p>
-                    <p class="card-text">{{ employee.salary }}</p>
-                    <p class="card-text">{{ employee.dob }}</p>
-                    <p class="card-text">{{ employee.email }}</p>
-                    <p class="card-text">{{ employee.created_at }}</p>
+                    <p class="card-text">Salary: {{ employee.salary |intcomma }}</p>
+                    <p class="card-text">DOB: {{ employee.dob | date:'d-m-y' }}</p>
+                    <p class="card-text">Email: {{ employee.email }}</p>
+                    <p class="card-text"> Added On {{ employee.created_at | naturaltime}}</p>
                 </div>
             </div>
         </div>
